@@ -408,7 +408,9 @@ let gameState = {
             if (highscores_deserialized.highscore[s] > highscores.highscore[s]){
                 highscores.highscore[s] = highscores_deserialized.highscore[s]
                 highscores.highscoreNames[s] = highscores_deserialized.highscoreNames[s]
-            }
+            }else if (highscores_deserialized.highscore[s] < highscores.highscore[s])
+               highscores_deserialized.highscore[s] = highscores.highscore[s] 
+               highscores_deserialized.highscoreNames[s] = highscores.highscoreNames[s]
         }
     }
         for (let i = 0; i < highscores.highscore.length; i++)
