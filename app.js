@@ -107,7 +107,7 @@ let gameState = {
                     return;
                     }
                 gameState.tick();
-             }, 150);
+             }, 100);
         });
     },
 
