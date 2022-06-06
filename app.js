@@ -403,7 +403,7 @@ let gameState = {
     recordScore(){
         
         let highscores_deserialized = JSON.parse(localStorage.getItem("Highscores"));
-        if (this.timesrun == 0 ){
+        if (this.timesrun !== 0 ){
         for (let s = 0;s < 20;s++){
             if (highscores_deserialized.highscore[s] > highscores.highscore[s]){
                 highscores.highscore[s] = highscores_deserialized.highscore[s]
