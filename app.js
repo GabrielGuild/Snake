@@ -401,6 +401,12 @@ let gameState = {
 
     },
     recordScore(){
+                for (let i = 0; i < highscores.highscore.length; i++)
+        if(this.score > highscores.highscore[i]){
+            highscores.highscore[i] = this.score
+            highscores.highscoreNames[i] = this.playerName
+            break;
+        }
         
         let highscores_deserialized = JSON.parse(localStorage.getItem("Highscores"));
         if (this.timesrun !== 0 ){
@@ -413,12 +419,6 @@ let gameState = {
                highscores_deserialized.highscoreNames[s] = highscores.highscoreNames[s]
         }
     }
-        for (let i = 0; i < highscores.highscore.length; i++)
-        if(this.score > highscores.highscore[i]){
-            highscores.highscore[i] = this.score
-            highscores.highscoreNames[i] = this.playerName
-            break;
-        }
         let score = document.querySelector('.score');
         score.innerHTML = `${this.highscoreNames[0]} has the high score with ${this.highscores[0]}`
         //renders scoreboard
