@@ -430,6 +430,7 @@ let gameState = {
         }
         let highscores_serialized =JSON.stringify(highscores)
         localStorage.setItem('Highscores',highscores_serialized)
+        this.timesrun ++
     },
 
 }
