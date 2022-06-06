@@ -414,15 +414,15 @@ let gameState = {
             if (highscores_deserialized.highscore[s] > highscores.highscore[s]){
                 highscores.highscore[s] = highscores_deserialized.highscore[s]
                 highscores.highscoreNames[s] = highscores_deserialized.highscoreNames[s]
-            }else if (highscores_deserialized.highscore[s] < highscores.highscore[s])
+            }else if (highscores_deserialized.highscore[s] < highscores.highscore[s]){
                highscores_deserialized.highscore[s] = highscores.highscore[s] 
                highscores_deserialized.highscoreNames[s] = highscores.highscoreNames[s]
+            }
         }
     }
         let score = document.querySelector('.score');
-        score.innerHTML = `${this.highscoreNames[0]} has the high score with ${this.highscores[0]}`
         //renders scoreboard
-        for (let j = 1; j < 20; j++){
+        for (let j = 0; j < 20; j++){
             let tab = document.createElement('div');
             tab.className = 'scoreTab'
             tab.innerHTML = `${highscores.highscoreNames[j]}: ${highscores.highscore[j]}`
