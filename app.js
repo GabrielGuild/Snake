@@ -401,13 +401,16 @@ let gameState = {
 
     },
     recordScore(){
+        
         let highscores_deserialized = JSON.parse(localStorage.getItem("Highscores"));
+        if (highscores_deserialized.highscore[0] == null){
         for (let s = 0;s < 20;s++){
             if (highscores_deserialized.highscore[s] > highscores.highscore[s]){
                 highscores.highscore[s] = highscores_deserialized.highscore[s]
                 highscores.highscoreNames[s] = highscores_deserialized.highscoreNames[s]
             }
         }
+    }
         for (let i = 0; i < highscores.highscore.length; i++)
         if(this.score > highscores.highscore[i]){
             highscores.highscore[i] = this.score
