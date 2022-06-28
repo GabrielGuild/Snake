@@ -405,6 +405,9 @@ let gameState = {
     recordScore(){
         let storedScores =  localStorage.getItem('scores');
         storedScores = JSON.parse(storedScores);
+        if (!storedScores){
+            storedScores = scores; 
+        }
         let score = document.querySelector('.score');
         console.log('scores', storedScores)
         for (let k = 0; k < scores.highscore.length; k++){
@@ -413,12 +416,6 @@ let gameState = {
                 scores.highscoreNames[k] = this.playerName 
                 break;
             }
-        }
-        // var Death = new Audio('./pictures/Death.mp3');
-        // Death.play();
-        if (storedScores){
-            let highscores_serialized =JSON.stringify(scores)
-            localStorage.setItem('scores',highscores_serialized)
         }
         for (let i = 0; i < scores.highscore.length; i++){
             if (scores.highscore[i] > storedScores.highscore[i]){
